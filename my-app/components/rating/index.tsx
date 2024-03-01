@@ -1,4 +1,7 @@
-export default function ({ rating }) {
+interface ratingprops {
+  rating: number;
+}
+export default function ({ rating }: ratingprops) {
   if (rating === 0) {
     return (
       <div className="flex items-center">
