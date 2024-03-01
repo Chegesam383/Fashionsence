@@ -13,7 +13,7 @@ export default function ({
 }) {
   return (
     <div
-      className="max-w-md  rounded-xl  border p-4 border-gray-300 mb-5"
+      className="max-w-md  rounded-xl  border  p-2 md:p-4 border-gray-300 mb-5"
       id={title}
     >
       <div className="pt-1 px-5 rounded-t-sm flex items-center justify-center  relative">
@@ -42,7 +42,7 @@ export default function ({
             {title}
           </Link>
         </div>
-        <div className=" flex justify-between items-center">
+        <div className=" flex flex-wrap justify-between items-center">
           <h3 className="font-bold text-xl text-left">
             <small>$</small>
             {price}
@@ -63,14 +63,14 @@ export default function ({
           </small>
         </div>
 
-        <div className="flex items-center  gap-4">
+        <div className="flex flex-wrap items-center mt-3 gap-1  lg:gap-4">
           <Button
             variant="outline"
-            className="rounded border border-primary  btn-sm mt-3 h-8 font-bold border-lg "
+            className="rounded border border-primary  btn-sm  h-8 font-bold border-lg "
           >
             Add to cart
           </Button>
-          <Button className="rounded border border-primary  btn-sm mt-3 h-8 font-bold border-lg ">
+          <Button className="rounded border border-primary  btn-sm  h-8 font-bold border-lg ">
             Buy now
           </Button>
         </div>
