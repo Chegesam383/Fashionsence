@@ -15,9 +15,13 @@ export default async function ({ title = "" }) {
   let products = await getData();
 
   if (title == "Best selling")
-    products = products.sort((a, b) => b.rating.count - a.rating.count);
+    products = products.sort(
+      (a: any, b: any) => b.rating.count - a.rating.count
+    );
   if (title === "Trending")
-    products = products.sort((a, b) => a.rating.count - b.rating.count);
+    products = products.sort(
+      (a: any, b: any) => a.rating.count - b.rating.count
+    );
   return (
     <section id={title}>
       <Container className="max-w-7xl rounded-sm bg-white my-4 p-4">
@@ -31,7 +35,7 @@ export default async function ({ title = "" }) {
         </div>
 
         <div className="sm:grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-4 ">
-          {products.slice(0, 4).map((product) => (
+          {products.slice(0, 4).map((product: any) => (
             <ProductCard {...product} />
           ))}
         </div>
