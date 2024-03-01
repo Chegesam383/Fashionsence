@@ -271,4 +271,33 @@ export const products = [
       count: 145,
     },
   },
+  {
+    id: 21,
+    title: "Huawei p40 56",
+    price: 12.99,
+    description:
+      "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+    category: "women's clothing",
+    image:
+      "https://www.huaweicentral.com/wp-content/uploads/2021/12/Huawei-p40-lite-5g-emui-12-2.jpg",
+    rating: {
+      rate: 3.6,
+      count: 145,
+    },
+  },
+
+  {
+    id: 22,
+    title: "Tesla charger",
+    price: 122.99,
+    description:
+      "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+    category: "women's clothing",
+    image:
+      "https://cdn.homecrux.com/wp-content/uploads/2019/01/Tesla-New-Car-Charging-Station-for-Homes.jpg",
+    rating: {
+      rate: 3.6,
+      count: 145,
+    },
+  },
 ];

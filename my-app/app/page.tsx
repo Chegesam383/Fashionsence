@@ -7,10 +7,12 @@ import Hero from "@/components/hero";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="bg-gray-100">
       <Navbar />
       <Hero />
-      <ProductList />
+
+      <ProductList title="Best selling" />
+      <ProductList title="Trending" />
     </main>
   );
 }

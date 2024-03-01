@@ -4,18 +4,37 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
-import Container from "@/components/container";
-import { Search, ShoppingCart, User } from "lucide-react";
 
-export default function Navbar() {
+import { Badge } from "@/components/ui/badge";
+
+import Container from "@/components/container";
+import { ShoppingCart, User } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+export const getData = async () => {
+  console.log("begin");
+
+  const res = await fetch("https://fakestoreapi.com/products/categories");
+  const data = await res.json();
+
+  return data;
+};
+
+export default async function Navbar() {
+  const data = await getData();
+
   return (
-    <nav className="border border-gray-100 border-t-0 border-l-0 border-r-0 border-b-1 pt-1 backdrop-filter backdrop-blur-[100px] fixed top-0 right-0 w-full z-50 ">
+    <nav
+      className="border border-gray-200 border-t-0 border-l-0 border-r-0 border-b-1 pt-1 backdrop-filter backdrop-blur-[100px] fixed top-0 right-0 w-full "
+      style={{ zIndex: 1000 }}
+    >
       <Container className="flex items-center justify-between">
-        <Link className="font-bold flex gap-2 text-xl" href="#">
+        <Link className="font-bold flex gap-2 text-xl" href="/">
           <ShoppingCart />
           <h3>
             F<span className="text-primary">sence</span>
@@ -25,15 +44,25 @@ export default function Navbar() {
           <Link className="text-sm text-primary hover:text-primary " href="#">
             Home
           </Link>
-          <Link className="text-sm hover:text-primary font-small" href="#">
-            Categories
-          </Link>
-          <Link className="text-sm hover:text-primary font-sm" href="#">
+
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm hover:text-primary outline-0 border-0">
+              Categories
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="p-4">
+              {data?.map((item: string) => (
+                <DropdownMenuItem key={item}>
+                  <Link href={`shop?category=${item}`}>{item}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link className="text-sm hover:text-primary font-sm" href="shop">
             Shop
           </Link>
-          <Link className="text-sm hover:text-primary font-sm" href="#">
-            Top selling
-          </Link>
+          <a className="text-sm hover:text-primary font-sm" href="/#Trending">
+            Trending
+          </a>
         </div>
 
         <div className="flex gap-8 items-center">
