@@ -15,7 +15,7 @@ export default function () {
                 All types of women cloths, men cloths and house appliances
                 available
               </p>
-              <div className="flex gap-0.5 sm:gap-2 lg:gap-4 justify-center">
+              <div className="flex gap-2 lg:gap-4 justify-center">
                 <Link
                   className=" inline-flex no-wrap h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                   href="#"

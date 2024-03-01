@@ -13,7 +13,7 @@ export default function ({
 }) {
   return (
     <div
-      className="max-w-sm  rounded-xl  border p-4 border-gray-300"
+      className="max-w-md  rounded-xl  border p-4 border-gray-300 mb-5"
       id={title}
     >
       <div className="pt-1 px-5 rounded-t-sm flex items-center justify-center  relative">
