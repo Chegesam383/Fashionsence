@@ -1,7 +1,14 @@
-interface ratingprops {
+type ratingprops = {
   rating: number;
-}
-export default function ({ rating }: ratingprops) {
+  long: boolean;
+};
+export default function ({ rating, long = true }: ratingprops) {
+  if (!long)
+    return (
+      <div className="flex items-center">
+        <Filled />
+      </div>
+    );
   if (rating === 0) {
     return (
       <div className="flex items-center">

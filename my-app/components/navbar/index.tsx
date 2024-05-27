@@ -17,8 +17,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export const getData = async () => {
-  console.log("begin");
-
   const res = await fetch("https://fakestoreapi.com/products/categories");
   const data = await res.json();
 
@@ -84,7 +82,7 @@ export default async function Navbar() {
                 <path d="m21 21-4.3-4.3"></path>
               </svg>
               <input
-                className="w-full rounded-full flex h-9 border-input bg-transparent px-3 py-1 text-sm  transition-colors border bg-gray-200  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 pl-8"
+                className="w-full rounded-lg flex h-9 border-muted bg-transparent px-3 py-1 text-sm  transition-colors border bg-gray-200  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 pl-8"
                 placeholder="Search"
               />
             </div>

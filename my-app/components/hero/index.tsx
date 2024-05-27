@@ -1,34 +1,58 @@
 import Link from "next/link";
 import Container from "../container";
+import Rating from "../rating";
+import { Button } from "../ui/button";
 
-export default function () {
+export const getData = async () => {
+  let x = Math.floor(Math.random() * 20 + 1);
+  const res = await fetch("https://fakestoreapi.com/products/" + x);
+  const data = await res.json();
+
+  return data;
+};
+
+export default async function () {
+  let { image, title, description, price, rating } = await getData();
+
   return (
-    <section className="w-full py-6 md:py-12">
+    <section className="w-full p-3 rounded-lg  bg-gradient-to-r from-white to-slate-50 translate-x-10my-12 md:my-12">
       <Container>
-        <div className="container px-4 mt-5 md:mt-3 rounded-xl md:px-6 bg-gradient-to-b from-slate-300 to-transparent">
-          <div className="grid gap-4 items-center justify-center h-[27vh] lg:h-[40vh]">
-            <div className="space-y-4">
-              <h1 className="text-3xl text-center font-bold tracking-tighter sm:text-5xl xl:text-6xl/none max-w-[100rem]">
-                Explore men & women clothing <br></br> and more
-              </h1>
-              <p className="text-center">
-                All types of women cloths, men cloths and house appliances
-                available
-              </p>
-              <div className="flex gap-2 lg:gap-4 justify-center">
-                <Link
-                  className=" inline-flex no-wrap h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                  href="#"
-                >
-                  Start shopping
-                </Link>
-                <Link
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-5 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#"
-                >
-                  Exprole
-                </Link>
-              </div>
+        <div className="md:flex  py-12 flex-wrap ">
+          <div className="flex-1">
+            {" "}
+            <a href="#">
+              <img
+                width={"100%"}
+                height={"100%"}
+                loading="lazy"
+                className="object-contain w-full min-h-[270px] max-h-[270px] hover:scale-110 hover:duration-75"
+                src={image}
+                alt={title}
+              />
+            </a>
+          </div>
+          <div className="flex-1">
+            <h1 className="font-bold mb-2 text-3xl">{title}</h1>
+            <h1 className="line-clamp-5 text-muted-foreground">
+              {description}
+            </h1>
+            <h3 className="font-bold text-xl text-left">
+              <small>$</small>
+              {price}
+              <s className="text-sm text-gray-400"> $300</s>
+            </h3>
+            <Rating rating={rating.rate} long={true} />
+
+            <div className="flex flex-wrap items-center mt-8 gap-1  lg:gap-4">
+              <Button
+                variant="outline"
+                className="rounded border border-primary  btn-sm  h-8 font-bold border-lg "
+              >
+                Add to cart
+              </Button>
+              <Button className="rounded border border-primary  btn-sm  h-8 font-bold border-lg ">
+                Buy now
+              </Button>
             </div>
           </div>
         </div>

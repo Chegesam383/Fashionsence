@@ -25,10 +25,12 @@ export default function ({
         </Button>
         <a href="#">
           <img
+            width={"100%"}
+            height={"100%"}
             loading="lazy"
-            className=" object-contain w-full min-h-[170px] max-h-[170px] hover:scale-110 hover:duration-75"
+            className="object-contain w-full min-h-[170px] max-h-[170px] hover:scale-110 hover:duration-75"
             src={image}
-            alt="product image"
+            alt={title}
           />
         </a>
       </div>
@@ -50,7 +52,7 @@ export default function ({
           </h3>
 
           <div className="flex ">
-            <Rating rating={rating.rate} />
+            <Rating rating={rating.rate} long={false} /> <p>{rating.rate}</p>
             <div>
               <small className="ml-1 self-baseline">({rating.count})</small>
             </div>
@@ -58,7 +60,7 @@ export default function ({
         </div>
 
         <div className=" min-h-[40px]" title={description}>
-          <small className="text-xs line-clamp-3  text-ellipsis">
+          <small className="text-xs line-clamp-3 text-muted-foreground  text-ellipsis">
             {description}
           </small>
         </div>
